@@ -1,0 +1,27 @@
+<div ng-controller = "productsController">
+	<input type="text" ng-model="newProduct.name" placeholder="name">
+	<input type="text" ng-model="newProduct.img" placeholder="http://">
+	<input type="textarea" ng-model="newProduct.description" placeholder="description"></textarea>
+	<input type="number" ng-model="newProduct.qty" placeholder="quantity">
+	<button ng-click="addProduct()"> Add product </button>
+	<table class="table">
+	<input type="text" ng-model="filter_name" placeholder="filter">
+		<tr>
+			<th></th>
+			<th> Name </th>
+			<th> Description </th>
+			<th> Created Date </th>
+			<th> Actions </th>
+		</tr>
+		<tr ng-repeat="product in products | filter: filter_name">
+			<td> <img class="img-responsive" ng-src="{{ product.image}}"/> </td>
+			<td> {{ product.name }}</td>
+			<td> {{ product.description }} </td>
+			<td> ( {{ product.qty }} ) left</td>
+			<td> {{ product.createdAt }} </td>
+			<td> <button ng-click="deleteProduct(product)"> Remove </button></td><br/>
+		</tr>
+	</table>
+	<input type="number" ng-model="amount.amount" placeholder="show, how much?" />
+	<a href="" ng-click="updatePage(amount)"> Show More </a>
+<div>

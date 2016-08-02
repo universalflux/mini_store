@@ -1,0 +1,19 @@
+<div ng-controller = "ordersController">
+<h3> Products </h3>
+	<ul ng-repeat="product in products">
+	<td> <img class="img-responsive" ng-src="{{ product.image}}"/> </td>
+	<li> {{ product.name }} </li>
+	<li> <im
+	</ul>
+<h3> Recent Orders </h3>
+	<ul ng-repeat="order in orders">
+	<li> {{ order.name }} </li>
+	<li> {{ order.product }} </li>
+	<li> {{ order.qty }} </li>
+	<li> Made (<span am-time-ago="order.createdAt"></span>)</li>
+	</ul>
+<h3> New Customers </h3>
+	<ul ng-repeat="customer in customers">
+	<li> {{ customer.name }}</li>
+	<li> Joined the store (<span am-time-ago="customer.createdAt"></span>)</li>
+</div>

@@ -1,0 +1,22 @@
+<div ng-controller = "ordersController">
+	<select ng-model = "newOrder.name" ng-options = "customer.name for customer in customers"></select>
+	<select ng-model = "newOrder.product" ng-options = "product.name for product in products"></select>
+	<input type="number" ng-model = "newOrder.qty">
+	<button ng-click="addOrder()"> Order </button>
+	<table class = "table">
+	<input type="text" ng-model="filter_name" placeholder="filter">
+		<tr>
+			<th> Customer Name </th>
+			<th> Product </th>
+			<th> Quantity </th>
+			<th> Date </th>
+		</tr>
+		<tr ng-repeat="order in orders | filter: filter_name">
+			<td> {{ order.name}}</td>
+			<td> {{ order.product }}</td>
+			<td> {{ order.qty }} </td>
+			<td> {{ order.createdAt | date:longDate}} </td>
+			<td> <button ng-click="deleteOrder(order)"> Delete </button> </td>
+		</tr>
+	</table>
+<div>
